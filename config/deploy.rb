@@ -44,6 +44,7 @@ set :use_sudo, false
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, { path: "/home/rails/.rbenv/shims/:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
