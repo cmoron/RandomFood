@@ -4,8 +4,14 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Users",  '#' %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <% if user_signed_in? %>
+            <li>Logged in as <strong><%= current_user.email %></strong>.</li>
+            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+        <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
+            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
