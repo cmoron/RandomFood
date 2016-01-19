@@ -54,13 +54,6 @@ set :default_env, { path: "/home/rails/.rbenv/shims/:$PATH" }
 
 namespace :deploy do
 
-  #desc "Create Symlinks"
-  #task :symlink_config_files do
-    #on roles :all do
-      #execute :ln, "-sf #{ deploy_to }/shared/config/database.yml #{current_path}/config/database.yml"
-    #end
-  #end
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -71,5 +64,3 @@ namespace :deploy do
   end
 
 end
-
-#before "deploy:assets:precompile", "deploy:symlink_config_files"
