@@ -5,7 +5,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
-            <li>Logged in as <strong><%= current_user.email %></strong>.</li>
+            <li><%= link_to 'Edit Recipes', '/recipes', :class => 'navbar-link' %></li>
+            <li><%= link_to 'Edit Ingredients', '/ingredients', :class => 'navbar-link' %></li>
             <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
         <% else %>

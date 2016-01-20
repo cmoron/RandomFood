@@ -4,5 +4,11 @@
   <h2>
     This is the RandomFood home page.
   </h2>
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  <% if user_signed_in? %>
+    <%= link_to "Edit Recipes!", '/recipes', class: "btn btn-lg btn-primary" %>
+    <%= link_to "Edit Ingredients!", '/ingredients', class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Or Log in!", new_user_session_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
