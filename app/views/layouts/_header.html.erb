@@ -1,20 +1,22 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
+<div class="container">
     <%= link_to "Random Food", root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <% if user_signed_in? %>
-            <li><%= link_to 'Edit Recipes', '/recipes', :class => 'navbar-link' %></li>
-            <li><%= link_to 'Edit Ingredients', '/ingredients', :class => 'navbar-link' %></li>
-            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-        <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
-            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
-        <% end %>
-      </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path %></li>
+            <% if user_signed_in? %>
+                <% if current_user.admin? %>
+                    <li><%= link_to 'Edit Recipes', '/recipes', :class => 'navbar-link' %></li>
+                    <li><%= link_to 'Edit Ingredients', '/ingredients', :class => 'navbar-link' %></li>
+                <% end %>
+                <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+            <% else %>
+                <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
+                <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+            <% end %>
+        </ul>
     </nav>
-  </div>
+</div>
 </header>
 
