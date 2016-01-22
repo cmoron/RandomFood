@@ -1,8 +1,8 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  before_filter do 
-    redirect_to :new_user_session_path unless current_user && current_user.admin?
+  before_filter do
+    redirect_to home_url unless current_user && current_user.admin?
   end
 
   # GET /ingredients
@@ -66,13 +66,13 @@ class IngredientsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ingredient
-      @ingredient = Ingredient.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ingredient
+    @ingredient = Ingredient.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ingredient_params
-      params.require(:ingredient).permit(:name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def ingredient_params
+    params.require(:ingredient).permit(:name)
+  end
 end
