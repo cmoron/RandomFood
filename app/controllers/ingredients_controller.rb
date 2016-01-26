@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index]  
   before_filter :check_auth, only: [:edit, :update, :destroy]
-  before_filter :authenticate_user!
+
   #before_filter do
   #  redirect_to home_url unless current_user && current_user.admin?
   #end
@@ -74,6 +74,7 @@ class IngredientsController < ApplicationController
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingredient_params
       params.require(:ingredient).permit(:name)
@@ -87,9 +88,14 @@ class IngredientsController < ApplicationController
     end
 
 =======
+=======
+>>>>>>> 881e199f5ddbc9d203a9b7a5c222071922167d2f
   # Never trust parameters from the scary internet, only allow the white list through.
   def ingredient_params
     params.require(:ingredient).permit(:name)
   end
+<<<<<<< HEAD
+>>>>>>> 881e199f5ddbc9d203a9b7a5c222071922167d2f
+=======
 >>>>>>> 881e199f5ddbc9d203a9b7a5c222071922167d2f
 end

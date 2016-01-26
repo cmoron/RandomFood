@@ -6,6 +6,10 @@ class RecipesController < ApplicationController
   #   redirect_to home_url unless current_user && current_user.admin?
   #end
 
+  before_filter do
+    redirect_to home_url unless current_user && current_user.admin?
+  end
+
   # GET /recipes
   # GET /recipes.json
   def index
