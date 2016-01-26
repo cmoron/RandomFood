@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# Or mysql
+gem 'mysql2'
 # Bootstrap sass
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets

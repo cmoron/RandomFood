@@ -11,6 +11,11 @@ class IngredientsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:ingredients)
   end
 
+  #Add testing routes SHOW
+  test "should route to ingredients" do
+    assert_routing '/ingredients/1', { :controller => "ingredients", :action => "show", :id => "1" }
+  end
+
   test "should get new" do
     get :new
     assert_response :success
@@ -43,6 +48,7 @@ class IngredientsControllerTest < ActionController::TestCase
     assert_difference('Ingredient.count', -1) do
       delete :destroy, id: @ingredient
     end
+
 
     assert_redirected_to ingredients_path
   end

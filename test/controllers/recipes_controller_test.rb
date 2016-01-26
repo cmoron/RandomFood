@@ -11,6 +11,11 @@ class RecipesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:recipes)
   end
 
+  #Add testing routes SHOW
+  test "should route to recipes" do
+    assert_routing '/recipes/1', { :controller => "recipes", :action => "show", :id => "1" }
+  end
+
   test "should get new" do
     get :new
     assert_response :success
