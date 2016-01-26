@@ -73,8 +73,6 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingredient_params
       params.require(:ingredient).permit(:name)
@@ -87,15 +85,10 @@ class IngredientsController < ApplicationController
 	end
     end
 
-=======
-=======
->>>>>>> 881e199f5ddbc9d203a9b7a5c222071922167d2f
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def ingredient_params
     params.require(:ingredient).permit(:name)
   end
-<<<<<<< HEAD
->>>>>>> 881e199f5ddbc9d203a9b7a5c222071922167d2f
-=======
->>>>>>> 881e199f5ddbc9d203a9b7a5c222071922167d2f
+
 end
