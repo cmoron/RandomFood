@@ -1,14 +1,11 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index] 
+  before_filter :authenticate_user!, except: [:index]
   before_action :check_auth, only: [:edit, :update, :destroy]
-  #before_filter do
-  #   redirect_to home_url unless current_user && current_user.admin?
-  #end
 
-  before_filter do
-    redirect_to home_url unless current_user && current_user.admin?
-  end
+  #before_filter do
+    #redirect_to home_url unless current_user && current_user.admin?
+  #end
 
   # GET /recipes
   # GET /recipes.json

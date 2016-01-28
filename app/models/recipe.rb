@@ -1,4 +1,4 @@
 class Recipe < ActiveRecord::Base
-	has_many :links
-	has_many :ingredients, through: :links
+  has_many :links
+  has_many :ingredients, through: :links
 end

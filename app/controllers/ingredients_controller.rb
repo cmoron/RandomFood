@@ -1,7 +1,7 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index]  
-  before_filter :check_auth, only: [:edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index]
+  before_filter :check_auth, only: [:create, :edit, :update, :destroy]
 
   #before_filter do
   #  redirect_to home_url unless current_user && current_user.admin?
@@ -73,17 +73,17 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ingredient_params
-      params.require(:ingredient).permit(:name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def ingredient_params
+    params.require(:ingredient).permit(:name)
+  end
 
-    def check_auth
-	if  not current_user.admin?
-	   flash[:notice] = "Sorry, you need to be admin to play with ingredients"
-	   redirect_to ingredients_path
-	end
+  def check_auth
+    if  not current_user.admin?
+      flash[:notice] = "Sorry, you need to be admin to play with ingredients"
+      redirect_to ingredients_path
     end
+  end
 
 
   # Never trust parameters from the scary internet, only allow the white list through.
