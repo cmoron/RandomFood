@@ -13,6 +13,9 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def search
+  end
+
   # GET /recipes/1
   # GET /recipes/1.json
   def show

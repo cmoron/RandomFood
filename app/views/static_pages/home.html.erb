@@ -1,16 +1,18 @@
 <% provide(:title, "Home") %>
 <div class="center jumbotron">
-    <h1>Welcome to RandomFood</h1>
-    <h2>
-        This is the RandomFood home page.
-    </h2>
-    <% if user_signed_in? %>
-        <% if current_user.admin? %>
-            <%= link_to "Edit Recipes!", '/recipes', class: "btn btn-lg btn-primary" %>
-            <%= link_to "Edit Ingredients!", '/ingredients', class: "btn btn-lg btn-primary" %>
-        <% end %>
-    <% else %>
-        <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to "Or Log in!", new_user_session_path, class: "btn btn-lg btn-primary" %>
-    <% end %>
+  <h1>Welcome to RandomFood</h1>
+  <h2>
+    This is the RandomFood home page.
+  </h2>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <!-- When submit the form, the view rendered will be the index view of our articles resource -->
+      <%= form_tag(recipes_path, :method => "get") do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Ingredients list" %>
+          <%= submit_tag "Search!", class: "btn home-btn"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
