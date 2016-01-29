@@ -7,9 +7,9 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3 text-center">
       <!-- When submit the form, the view rendered will be the index view of our articles resource -->
-      <%= form_tag(recipes_path, :method => "get") do %>
+      <%= form_tag(search_path) do %>
         <div class="form-group">
-          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Ingredients list" %>
+          <%= text_field_tag :search, nil, class: "form-control", placeholder: "Ingredients list" %>
           <%= submit_tag "Search!", class: "btn home-btn"%>
         </div>
       <% end %>

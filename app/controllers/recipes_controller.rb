@@ -1,10 +1,10 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :search]
   before_action :check_auth, only: [:create, :edit, :update, :destroy]
 
   #before_filter do
-    #redirect_to home_url unless current_user && current_user.admin?
+  #redirect_to home_url unless current_user && current_user.admin?
   #end
 
   # GET /recipes
@@ -14,6 +14,17 @@ class RecipesController < ApplicationController
   end
 
   def search
+    search_string = params[:search]
+    @ingredients = Array.new
+    if !search_string.nil?
+      ing_strings = search_string.split(',')
+      for ing_string in ing_strings
+        ingredient = Ingredient.where('lower(name) = ?', ing_string.downcase.strip).first
+        if !ingredient.nil?
+          @ingredients << ingredient
+        end
+      end
+    end
   end
 
   # GET /recipes/1
@@ -71,20 +82,20 @@ class RecipesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_recipe
-      @recipe = Recipe.includes(:ingredients).find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    @recipe = Recipe.includes(:ingredients).find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def recipe_params
-      params.require(:recipe).permit(:name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def recipe_params
+    params.require(:recipe).permit(:name)
+  end
 
-    def check_auth
-	if  not current_user.admin?
-	   flash[:notice] = "Sorry, you need to be admin to play with recipes"
-	   redirect_to recipes_path
-	end
+  def check_auth
+    if  not current_user.admin?
+      flash[:notice] = "Sorry, you need to be admin to play with recipes"
+      redirect_to recipes_path
     end
+  end
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root                         'static_pages#home'
   get 'home'                => 'static_pages#home'
   get 'signup'              => 'users#signup'
+  post 'search'             => 'recipes#search'
   resources :ingredients
   resources :recipes
 

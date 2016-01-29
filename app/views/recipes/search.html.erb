@@ -1,23 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Recipes</h1>
+<h1>Results</h1>
 
-<table class="bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @ingredients.each do |ing| %>
+    Recipes with <b><%= ing.name %></b> : <br/>
+    <% ing.recipes.each do |recipe| %>
+        - <%= recipe.name %> <br/>
     <% end %>
-  </tbody>
-</table>
+<% end %>
+
+
