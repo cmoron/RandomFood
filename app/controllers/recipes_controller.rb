@@ -16,12 +16,23 @@ class RecipesController < ApplicationController
   def search
     search_string = params[:search]
     @ingredients = Array.new
+    @recipes = Array.new
     if !search_string.nil?
       ing_strings = search_string.split(',')
       for ing_string in ing_strings
         ingredient = Ingredient.where('lower(name) = ?', ing_string.downcase.strip).first
         if !ingredient.nil?
-          @ingredients << ingredient
+          @ingredients << ingredient.id
+        end
+      end
+    end
+    unless @ingredients.empty?
+      @ingredients.each do |ing_id|
+        recipes = Recipe.joins(:ingredients).where(:ingredients => {:id => ing_id})
+        if @recipes.empty?
+          @recipes = recipes
+        else
+          @recipes &= recipes
         end
       end
     end

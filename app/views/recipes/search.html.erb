@@ -2,11 +2,9 @@
 
 <h1>Results</h1>
 
-<% @ingredients.each do |ing| %>
-    Recipes with <b><%= ing.name %></b> : <br/>
-    <% ing.recipes.each do |recipe| %>
-        - <%= recipe.name %> <br/>
-    <% end %>
+<%=@recipes.count %> Recipes : <br />
+<% @recipes.each do |recipe| %>
+  - <%= link_to recipe.name, recipe %><br />
 <% end %>
 
 
