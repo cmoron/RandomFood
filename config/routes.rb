@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   post 'search'             => 'recipes#search'
   resources :ingredients
   resources :recipes
+  resources :static_pages do
+    get :autocomplete_ingredient_name, :on => :collection
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

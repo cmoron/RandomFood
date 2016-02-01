@@ -30,6 +30,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use devise to set up user authentification
 gem 'devise'
 
+# Rails4 autocomplete
+gem 'rails4-autocomplete'
+
+# Jquery ui
+gem 'jquery-ui-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
