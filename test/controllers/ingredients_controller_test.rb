@@ -3,6 +3,13 @@ require 'test_helper'
 class IngredientsControllerTest < ActionController::TestCase
   setup do
     @ingredient = ingredients(:one)
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    @user = FactoryGirl.create(:admin)
+    sign_in @user
+  end
+
+  teardown do
+    sign_out @user
   end
 
   test "should get index" do
