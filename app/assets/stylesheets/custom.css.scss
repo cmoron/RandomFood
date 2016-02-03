@@ -1,44 +1,308 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* mixins, variables, etc. */
+// ================================================================
+// Begin: Variables definition
+// ================================================================
+$pure-white: #FFFFFF;
+$pure-black: #000000;
+$navbar-text-gray: #9D9D9D;
+$navbar-text-hover-gray: #5D5D5D;
+$gray-medium-light-border: #EAEAEA;
+$gray-light-background: #F8F8F8;
+$gray-dark-font-color: #565A5C;
+$red-dark-text: #990000;
+$button-background: #FF5A5F;
+$button-border: #FF5A5F;
+$button-hover-background: #FF7E82;
+$button-active-background: #E00007;
 
-$gray-medium-light: #eaeaea;
+// ================================================================
+// End: Variables definition
+// ================================================================
 
-/* universal */
-
+// ================================================================
+// Begin: Body and main layout definition
+// ================================================================
 body {
-    color: #565A5C;
-    background-color: #F8F8F8;
+    color: $gray-dark-font-color;
+    background-color: $gray-light-background;
     .main-container{
         padding-top: 20px;
     }
 }
 
-.panel{
-    border-radius: 0px;
-}
-
 .container{
-    width: 80%;
+    width: 80%; // This % gives the width of the main layout.
 }
 
-section {
-    overflow: auto;
+// ================================================================
+// End: Body definition
+// ================================================================
+
+// ================================================================
+// Begin: Typography
+// ================================================================
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
 }
 
-textarea {
-    resize: vertical;
-}
-
-.center {
+h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
     text-align: center;
-    h1 {
-        margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: $gray-light;
+}
+
+.enlighted-text {
+    color: $red-dark-text;
+    font-weight: bold;
+}
+
+// ================================================================
+// End: Typography
+// ================================================================
+
+// ================================================================
+// Begin: Header
+// ================================================================
+#logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    color: $navbar-text-gray;
+    letter-spacing: -1px;
+    padding-top: 16px;
+    padding-left: 50px;
+    background-image: url('logo.png');
+    &:hover {
+        color: $navbar-text-hover-gray;
+        text-decoration: none;
+        background-position: -204px 0px; // Move image 204px left
     }
 }
 
-/* Tables */
+.navbar-default{
+    background-color: $pure-white;
+    .navbar-brand{
+        /*font-size: 2em;*/
+        /*font-weight: 500;*/
+    }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: $navbar-text-gray;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: $navbar-text-hover-gray;
+}
+// ================================================================
+// End: Header
+// ================================================================
+
+
+// ================================================================
+// Begin: Footer
+// ================================================================
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid $gray-medium-light-border;
+    color: $gray-light;
+    a {
+        color: $gray;
+        &:hover {
+            color: $gray-darker;
+        }
+    }
+    small {
+        float: left;
+    }
+    ul {
+        float: right;
+        list-style: none;
+        li {
+            float: left;
+            margin-left: 15px;
+        }
+    }
+}
+
+// ================================================================
+// End: Footer
+// ================================================================
+
+
+// ================================================================
+// Begin: Buttons design
+// ================================================================
+.home-btn.btn{
+    border: 1px solid $button-border;
+    border-radius: 4px;
+    background-color: $button-background;
+    color: $pure-white;
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+
+    &:hover, &:focus{
+        border-color: $button-hover-background;
+        border-bottom-color: $button-hover-background;
+        background-color: $button-hover-background;
+        outline:none;
+    }
+    &:active{
+        border-color: $button-active-background;
+        background-color: $button-active-background;
+        outline: none;
+    }
+}
+
+.btn-primary.btn{
+    border: 1px solid $button-hover-background;
+    border-radius: 4px;
+    background-color: $button-hover-background;
+    color: #FFF;
+    padding: 10px 25px;
+    margin-right: 20px;
+
+    &:hover, &:focus{
+        border-color: $button-hover-background;
+        border-bottom-color: $button-hover-background;
+        background-color: $button-hover-background;
+        outline:none;
+    }
+    &:active{
+        border-color: $button-active-background;
+        background-color: $button-active-background;
+        outline: none;
+    }
+}
+
+.btn-default.btn{
+    width: 100%;
+    border-radius: 2px;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+// ================================================================
+// End: Buttons design
+// ================================================================
+
+// ================================================================
+// Begin: Forms design
+// ================================================================
+.form-group{
+    margin-bottom: 25px;
+}
+
+.form-control{
+    border-radius: 2px;
+    height: 4rem;
+}
+
+label {
+    color: #565A5C;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+select{
+    color: #565A5C;
+    background-color: $pure-white;
+    width: 100%;
+    border: 1px solid #CCC;
+    border-radius: 2px;
+    padding: 10px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.select:before{
+    content: '\25bc';
+    font-size: 1.2em;
+    position: absolute;
+    color: #82888A;
+    top: 42px;
+    right: 30px;
+    transform: scale(0.84, 0.5);
+}
+
+input[type=checkbox]{
+    height: 1.25em;
+    width: 1.25em;
+    margin-right: 5px;
+    vertical-align: top;
+    border: 1px solid #C4C4C4;
+    border-radius: 2px;
+}
+
+input[type=checkbox]:checked:before{
+    content: '\2713';
+    position: absolute;
+    font-size: 0.95em;
+    text-align: center;
+    width: 1.25em;
+    color: #FF5a5F;
+}
+
+.btn-file{
+    position: relative;
+    overflow: hidden;
+
+    input[type=file]{
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity:0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+}
+
+// ================================================================
+// End: Forms design
+// ================================================================
+
+// ???
+/*.panel-heading.preview{*/
+    /*padding: 0px;*/
+    /*img{*/
+        /*width: 100%;*/
+    /*}*/
+/*}*/
+
+/*.amenities li{*/
+    /*margin-bottom: 10px;*/
+    /*list-style-type: none;*/
+/*}*/
+
+/*.text-line-through{*/
+    /*text-decoration: line-through;*/
+/*}*/
+
+// ================================================================
+// Begin: Table definition
+// ================================================================
 table {
     *border-collapse: collapse; /* IE7 and lower */
     border-spacing: 0;
@@ -50,8 +314,8 @@ table {
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
-    -webkit-box-shadow: 0 1px 1px #ccc; 
-    -moz-box-shadow: 0 1px 1px #ccc; 
+    -webkit-box-shadow: 0 1px 1px #ccc;
+    -moz-box-shadow: 0 1px 1px #ccc;
     box-shadow: 0 1px 1px #ccc;
 }
 
@@ -120,240 +384,6 @@ table {
     border-radius: 0 0 6px 0;
 }
 
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1;
-}
-
-h1 {
-    font-size: 3em;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 1.2em;
-    letter-spacing: -1px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: normal;
-    color: $gray-light;
-}
-
-p {
-    font-size: 1.1em;
-    line-height: 1.7em;
-}
-
-.enlighted-text {
-    color: #990000;
-    font-weight: bold;
-}
-
-/* header */
-#logo {
-    float: left;
-    margin-right: 10px;
-    font-size: 1.7em;
-    color: #9d9d9d;
-    letter-spacing: -1px;
-    padding-top: 16px;
-    padding-left: 50px;
-    background-image: url('logo.png');
-    background-repeat: no-repeat;
-    &:hover {
-        color: #5d5d5d;
-        text-decoration: none;
-        background-image: url('logo_hover.png');
-        background-repeat: no-repeat;
-    }
-}
-
-/* footer */
-
-footer {
-    margin-top: 45px;
-    padding-top: 5px;
-    border-top: 1px solid $gray-medium-light;
-    color: $gray-light;
-    a {
-        color: $gray;
-        &:hover {
-            color: $gray-darker;
-        }
-    }
-    small {
-        float: left;
-    }
-    ul {
-        float: right;
-        list-style: none;
-        li {
-            float: left;
-            margin-left: 15px;
-        }
-    }
-}
-
-.navbar-default{
-    background-color: #FFFFFF;
-    .navbar-brand{
-        color: #FF5A5F;
-        font-size: 2em;
-        font-weight: 500;
-    }
-}
-
-.navbar-inverse .navbar-nav > li > a {
-    color: #9d9d9d;
-}
-
-.navbar-inverse .navbar-nav > li > a:hover {
-    color: #5d5d5d;
-}
-
-.home-btn.btn{
-    border: 1px solid #FF5A5F;
-    border-radius: 4px;
-    background-color: #FF5A5F;
-    color: #FFF;
-    padding: 10px 15px;
-    margin-right: 10px;
-    margin-top: 10px;
-
-    &:hover, &:focus{
-        border-color: #FF7E82;
-        border-bottom-color: #FA0008;
-        background-color: #FF7E82;
-        outline:none;
-    }
-    &:active{
-        border-color: #E00007;
-        background-color: #E00007;
-        outline: none;
-    }
-}
-
-.btn-primary.btn{
-    border: 1px solid #FF5A5F;
-    border-radius: 4px;
-    background-color: #FF5A5F;
-    color: #FFF;
-    padding: 10px 25px;
-    margin-right: 20px;
-
-    &:hover, &:focus{
-        border-color: #FF7E82;
-        border-bottom-color: #FA0008;
-        background-color: #FF7E82;
-        outline:none;
-    }
-    &:active{
-        border-color: #E00007;
-        background-color: #E00007;
-        outline: none;
-    }
-}
-
-.btn-default.btn{
-    width: 100%;
-    border-radius: 2px;
-    padding: 10px 0;
-    margin-top: 10px;
-}
-
-.form-group{
-    margin-bottom: 25px;
-}
-
-.form-control{
-    border-radius: 2px;
-    height: 4rem;
-}
-
-label {
-    color: #565A5C;
-    font-size: 1.1em;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-select{
-    color: #565A5C;
-    background-color: #FFF;
-    width: 100%;
-    border: 1px solid #CCC;
-    border-radius: 2px;
-    padding: 10px;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-}
-
-.select:before{
-    content: '\25bc';
-    font-size: 1.2em;
-    position: absolute;
-    color: #82888A;
-    top: 42px;
-    right: 30px;
-    transform: scale(0.84, 0.5);
-}
-
-input[type=checkbox]{
-    height: 1.25em;
-    width: 1.25em;
-    margin-right: 5px;
-    vertical-align: top;
-    border: 1px solid #C4C4C4;
-    border-radius: 2px;
-}
-
-input[type=checkbox]:checked:before{
-    content: '\2713';
-    position: absolute;
-    font-size: 0.95em;
-    text-align: center;
-    width: 1.25em;
-    color: #FF5a5F;
-}
-
-.btn-file{
-    position: relative;
-    overflow: hidden;
-
-    input[type=file]{
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        font-size: 100px;
-        text-align: right;
-        filter: alpha(opacity=0);
-        opacity:0;
-        outline: none;
-        background: white;
-        cursor: inherit;
-        display: block;
-    }
-}
-
-.panel-heading.preview{
-    padding: 0px;
-    img{
-        width: 100%;
-    }
-}
-
-.amenities li{
-    margin-bottom: 10px;
-    list-style-type: none;
-}
-
-.text-line-through{
-    text-decoration: line-through;
-}
-
+// ================================================================
+// End: Table definition
+// ================================================================
