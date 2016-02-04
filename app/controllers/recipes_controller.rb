@@ -14,29 +14,8 @@ class RecipesController < ApplicationController
   end
 
   def search
-    # Maybe some of this code should be in model
-    search_string = params[:search]
-    @ingredients = Array.new
-    @recipes = Array.new
-    if !search_string.nil?
-      ing_strings = search_string.split(',')
-      for ing_string in ing_strings
-        ingredient = Ingredient.where('lower(name) = ?', ing_string.downcase.strip).first
-        if !ingredient.nil?
-          @ingredients << ingredient
-        end
-      end
-    end
-    unless @ingredients.empty?
-      @ingredients.each do |ing|
-        recipes = Recipe.joins(:ingredients).where(:ingredients => {:id => ing.id})
-        if @recipes.empty?
-          @recipes = recipes
-        else
-          @recipes &= recipes
-        end
-      end
-    end
+    @ingredients = Ingredient.get_ingredients_from_search_string(params[:search])
+    @recipes = Recipe.get_recipes_from_ingredients @ingredients
   end
 
   # GET /recipes/1
