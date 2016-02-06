@@ -16,6 +16,9 @@
       <div class="form-group">
         <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: :name %>
       </div>
+      <div class="form-group">
+        <%= autocomplete_field_tag 'new_recipe_ingredients_list', '', autocomplete_ingredient_name_static_pages_path, 'data-delimiter' => ', ', :multiple => true, class: "form-control", placeholder: "Ingredients list" %>
+      </div>
       <div class="actions">
         <%= f.submit class: "btn btn-primary"%>
         <%= link_to "Back", recipes_path, class: "btn btn-primary" %>

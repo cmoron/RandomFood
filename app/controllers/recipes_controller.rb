@@ -34,8 +34,13 @@ class RecipesController < ApplicationController
 
   # POST /recipes
   # POST /recipes.json
-  def create
+  def create   
+    ingredients = Ingredient.get_ingredients_from_recipe_creation_ingredients_list_string(params[:new_recipe_ingredients_list])
     @recipe = Recipe.new(recipe_params)
+
+    ingredients.each do |ing|
+      @recipe.ingredients << ing
+    end
 
     respond_to do |format|
       if @recipe.save
