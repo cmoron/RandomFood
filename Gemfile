@@ -39,6 +39,9 @@ gem 'rails4-autocomplete'
 # Factory girl to generate test resources
 gem 'factory_girl'
 
+# Materialize framework
+gem 'materialize-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

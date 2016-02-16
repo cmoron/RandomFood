@@ -1,8 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Ingredients</h1>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a href="<%=new_ingredient_path %>" class="btn-floating btn-large orange">
+      <i class="material-icons">add</i>
+    </a>
+</div>
 
-<table class="bordered">
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h2 class="header center orange-text">Listing Ingredients</h2>
+      <br><br>
+  </div>
+</div>
+
+
+<table class="striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,4 +36,3 @@
 
 <br>
 
-<%= link_to 'New Ingredient', new_ingredient_path %>

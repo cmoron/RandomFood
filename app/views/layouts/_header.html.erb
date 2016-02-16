@@ -1,8 +1,10 @@
-<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to 'Random Food', root_path, id: "logo", class: "navbar-brand" %>
-    <nav id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+<!DOCTYPE html>
+
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo" href="<%=root_path %>" class="brand-logo">Random Food</a>
+    
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
           <% if current_user.admin? %>
@@ -16,7 +18,9 @@
           <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
         <% end %>
       </ul>
-    </nav>
-  </div>
-</header>
+    </div>
+  </nav>
+
+  
+
 
