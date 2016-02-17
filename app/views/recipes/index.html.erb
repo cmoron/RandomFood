@@ -1,49 +1,37 @@
-<!DOCTYPE html>
 <div>
+  <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
-
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
     <a href="<%= new_recipe_path %>" class="btn-floating btn-large orange">
       <i class="material-icons">add</i>
     </a>
-</div>
+  </div>
 
-
-<div class="section no-pad-bot" id="index-banner">
+  <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <h2 class="header center orange-text">Listing Recipes</h2>
       <br><br>
-  </div>
-</div>
-
-
-
-    <div class="row">
-
-      <% @recipes.each do |recipe| %>  
-        <div class="col s12 m4">
-        
-            <div class="card grey lighten-4">  
-              <div class="card-content">
-                <span class="card-title truncate"><%= recipe.name %></span>
-                <p>test</p>
-              </div>
-
-              <div class="card-action">
-                <a><%= link_to 'Show', recipe %></a>
-                <a><%= link_to 'Edit', edit_recipe_path(recipe) %></a>
-                <a><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></a>
-              </div>
-            </div>
-         </div>
-      <% end %> 
-
     </div>
+  </div>
+  <div class="row">
 
-        
-             
+    <% @recipes.each do |recipe| %>  
+      <div class="col s12 m4">
 
-  <br>
+        <div class="card grey lighten-4">  
+          <div class="card-content">
+            <span class="card-title truncate"><%= recipe.name %></span>
+            <p>test</p>
+          </div>
 
+          <div class="card-action">
+            <a><%= link_to 'Show', recipe %></a>
+            <a><%= link_to 'Edit', edit_recipe_path(recipe) %></a>
+            <a><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+          </div>
+        </div>
+      </div>
+    <% end %> 
+
+  </div>
 </div>

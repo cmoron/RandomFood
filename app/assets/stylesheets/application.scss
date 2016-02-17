@@ -1,3 +1,18 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jquery-ui
+ */
+
 @import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
 @import "materialize";
@@ -6,19 +21,20 @@ $primary-color: color("blue", "lighten-2") !default;
 @import "materialize/components/global";
 @import "materialize/components/icons-material-design";
 
-
 #logo {
-    padding-left: 60px;
-    background: url('logo2.png') ;
-    background-repeat: no-repeat;
-    background-position: 0px 5px;
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    letter-spacing: -1px;
+    padding-left: 50px;
+    background-image: url('logo.png');
     &:hover {
         text-decoration: none;
-        background: url('logo_hover.png') ;
-        background-repeat: no-repeat;
-        background-position: 0px 5px;
+        background-position: -204px 0px; // Move image 204px left
     }
 }
 
-
-
+.container .row {
+    margin-left: 0;
+    margin-right: 0;
+}

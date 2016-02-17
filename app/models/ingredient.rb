@@ -24,8 +24,8 @@ class Ingredient < ActiveRecord::Base
 
     return results
   end
-  
-  
+
+
   #Gets ingredients array from an ingredients list string, creating Ingredient object for each one that does not exist yet
   def self.get_ingredients_from_recipe_creation_ingredients_list_string ingredients_list_string
 
