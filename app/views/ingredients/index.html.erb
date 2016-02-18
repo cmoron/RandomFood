@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a href="<%=new_ingredient_path %>" class="btn-floating btn-large orange">
-      <i class="material-icons">add</i>
-    </a>
+<div class="fixed-action-btn">
+  <a href="<%=new_ingredient_path %>" class="btn-floating btn-large orange">
+    <i class="material-icons">add</i>
+  </a>
 </div>
 
 <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <h2 class="header center orange-text">Listing Ingredients</h2>
-      <br><br>
+  <div class="container">
+    <h2 class="header center orange-text">Listing Ingredients</h2>
   </div>
 </div>
-
 
 <table class="striped">
   <thead>
@@ -33,6 +31,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-

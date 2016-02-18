@@ -4,9 +4,9 @@
 
 <h4>Your shits : </h4>
 <ul>
-<% @ingredients.each do |ingredient| %>
-  <li><%= ingredient.name %></li>
-<% end %>
+  <% @ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+  <% end %>
 </ul>
 
 <!-- Export this in helper -->
@@ -14,7 +14,7 @@
 
 <h4>Our <%=@recipes.count %> awesome <%= recipes_string %> : </h4>
 <ul>
-<% @recipes.each do |recipe| %>
-  <li><%= link_to recipe.name, recipe %></li>
-<% end %>
+  <% @recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe %></li>
+  <% end %>
 </ul>
